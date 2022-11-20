@@ -1,6 +1,37 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+
+function generatePassword(max,min) {
+  var userInput = window.prompt("How many characters would you like your password to be?");
+
+  var passwordLength = parseInt(userInput);
+
+  if (isNaN(passwordLength)) {
+   window.alert("Please enter a number.")
+  return
+  } 
+
+  if (passwordLength < 8 || passwordLength > 128) {
+    window.alert("please enter a value between 8-128 characters.")
+    return
+  }
+
+
+var userWantsNumbers = window.confirm("Would you like include numbers?");
+var userWantsSymbols = window.confirm("Would you like to include symboles?");
+var userWantsLowercase = window.confirm("Would you like to include lowercase letters?");
+var userWantsUppercase = window.confirm("Would you like to include uppercase letters?");
+
+var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+var symbols = ["!", "@", "#", "$", "%", "^", "&", "*",]
+var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+
+
+
+}
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
