@@ -1,5 +1,9 @@
+
+// This is where I declared all of my global variables and arrays with the possible characters.
 var choiceArr = [];
 var password = [];
+var passwordString = "";
+var passwordLength = "";
 var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var symbols = ["!", "@", "#", "$", "%", "^", "&", "*"];
 var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -14,25 +18,26 @@ var generateBtn = document.querySelector("#generate");
 
 
 
-function generatePassword() {
-  
-  randomization.push();
- 
-}
 
-function randomization() {
+// This function takes the array with the chosen characters and randomizes them and puts them into a random password at the chozen length by the user.
+function generatePassword () {
 
-  for(i = 0; i < choiceArr; i++ ) {
+  for(i = 0; i < passwordLength; i++) {
     var randomIndex = Math.floor(Math.random() * choiceArr.length)
-    password = password + randomIndex;
-    password.push();
+    password.push(choiceArr[randomIndex]);
+    
   }
+  passwordString = password.toString().replaceAll(',', '');
+return passwordString;
+
   
 }
 
 
+// This is the prompts section that asks the user how many characters they would like they're password to be and also asks which characters 
+//or numbers they would like to include in the password.
 function prompts () {
-  var passwordLength = parseInt(window.prompt("How many characters would you like your password to be?"));
+  passwordLength = parseInt(window.prompt("How many characters would you like your password to be?"));
   
 
   if (isNaN(passwordLength)) {
@@ -75,12 +80,11 @@ function writePassword() {
   var correct = prompts();
   var passwordText = document.querySelector("#password");
 
-  if (correct) {
+  
     var updatedPassword = generatePassword();
     passwordText.value = updatedPassword;
-    } else {
-      passwordText.value = "";
-    }
+    
+    
    
 
 }
